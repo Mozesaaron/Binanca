@@ -1,1 +1,1 @@
-# Binanca
+# Binance
