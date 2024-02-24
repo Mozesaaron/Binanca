@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Buy and Sell Bitcoin here
+        </title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            .navbar-brand{
+                font-weight:bolder;
+            }
+            .navmenu{
+                display:flex;
+            }
+            .nav-item{
+                font-weight:bolder;
+                cursor:pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <!--navbar-->
+        <div class='navbar bg-dark text-light'>
+            <a href='' class='navbar-brand text-light'>Trade your Bitcoin</a>
+            <div>
+                <ul class='navmenu' type='none'>
+                    <li class='nav-link nav-item'>Profile</li>
+                    <li class='nav-link nav-item'>Sell coins</li>
+                    <li class='nav-link nav-item'>Buy Coins</li>
+                </ul>
+            </div>
+        </div>
+        <!-- end of navbar -->
+
+        <!-- javascript to fetch bitcoin information-->
+        <script>
+            async function fetchData() {
+                const url = 'https://bitcoinaverage-global-bitcoin-index-v1.p.rapidapi.com/indices/global/ticker/BTCUSD';
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        'X-RapidAPI-Key': '4f2bebb3f6msh26af8faa090c194p1e2759jsn18becdea64f0',
+                        'X-RapidAPI-Host': 'bitcoinaverage-global-bitcoin-index-v1.p.rapidapi.com'
+                    }
+                };
+
+                try {
+                    /*
+                    
+{ask: 51777.7, bid: 51771.29, last: 51774.06, high: 52424.96, low: 51686.99, …}
+ask
+: 
+51777.7
+averages
+: 
+{day: 52020.91, week: 50119.36, month: 44180.68}
+bid
+: 
+51771.29
+changes
+: 
+{price: {…}, percent: {…}}
+display_symbol
+: 
+"BTC-USD"
+display_timestamp
+: 
+"2024-02-17 09:54:25"
+high
+: 
+52424.96
+last
+: 
+51774.06
+low
+: 
+51686.99
+open
+: 
+{hour: 51868.53, day: 52195.45, week: 47207.25, month: 42708.76, month_3: 36375.92, …}
+timestamp
+: 
+1708163665
+volume
+: 
+19363.43402092
+volume_percent
+: 
+88.53
+[[Prototype]]
+: 
+Object 
+                    */
+                    const response = await fetch(url, options);
+                    const result = await response.json()
+                    console.log(result);
+                    document.getElementById('btc-data').innerHTML = result;
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            // Call the function to fetch data
+            fetchData();
+        </script>
+
+        <div id='btc-data'></div>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
