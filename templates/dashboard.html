@@ -24,7 +24,7 @@
     <body>
         <!--navbar-->
         <div class='navbar bg-dark text-light'>
-            <a href='' class='navbar-brand text-light'>Trade your Bitcoin</a>
+            <a href='' class='navbar-brand text-light'>Binance</a>
             <div>
                 <ul class='navmenu' type='none'>
                     <li class='nav-link nav-item'>Profile</li>
@@ -34,6 +34,135 @@
             </div>
         </div>
         <!-- end of navbar -->
+
+        <div class='row pb-3'>
+            <div class='col-md-3'></div>
+            <table class='col-md-6'>
+                <tr>
+                    <th class='p-1'>Ask</th>
+                    <th class='p-1'>Bid</th>
+                    <th class='p-1'>Last</th>
+                    <th class='p-1'>High</th>
+                    <th class='p-1'>Low</th>
+                </tr>
+                <tr>
+                    <td class='p-1' id='ask-value'></td>
+                    <td class='p-1' id='bid-value'></td>
+                    <td class='p-1' id='last-value'></td>
+                    <td class='p-1' id='high-value'></td>
+                    <td class='p-1' id='low-value'></td>
+                </tr>
+            </table>
+            <div class='col-md-3'></div>
+        </div>
+
+        <div class='row pb-3'>
+            <div class='col-md-3'>
+                <h3>Averages</h3>
+            </div>
+            <div class='col-md-6'>
+                <table>
+                    <tr>
+                        <th class='p-1'>Day</th>
+                        <th class='p-1'>Week</th>
+                        <th class='p-1'>Month</th>
+                    <tr>
+                        <tr>
+                            <td class='p-1' id='day'></td>
+                            <td class='p-1'  id='week'></td>
+                            <td class='p-1'  id='month'></td>
+                        </tr>
+                </table>
+            </div>
+            <div class='col-md-3'></div>
+        </div>
+
+        <div class='row pb-3'>
+            <div class='col-md-3'>
+                <h3>Changes(%)</h3>
+            </div>
+            <div class='col-md-6'>
+                <table>
+                    <tr>
+                        <th  class='p-1'>Day</th>
+                        <th  class='p-1'>Hour</th>
+                        <th  class='p-1'>Month</th>
+                        <th  class='p-1'>Month_3</th>
+                        <th  class='p-1'>Month_6</th>
+                        <th  class='p-1'>Week</th>
+                        <th  class='p-1'>Year</th>
+                    <tr>
+                    <tr>
+                        <td id='dayp' class='p-1'></td>
+                        <td id='hourp' class='p-1'></td>
+                        <td id='monthp' class='p-1'></td>
+                        <td id='month_3p' class='p-1'></td>
+                        <td id='month_6p' class='p-1'></td>
+                        <td id='weekp' class='p-1'></td>
+                        <td id='yearp' class='p-1'></td>
+                    <tr>
+                </table>
+            </div>
+            <div class='col-md-3'></div>
+        </div>
+
+        <div class='row pb-3'>
+            <div class='col-md-3'>
+                <h3>Price Changes</h3>
+            </div>
+            <div class='col-md-6'>
+                <table>
+                    <tr>
+                        <th  class='p-1'>Day</th>
+                        <th  class='p-1'>Hour</th>
+                        <th  class='p-1'>Month</th>
+                        <th  class='p-1'>Month_3</th>
+                        <th  class='p-1'>Month_6</th>
+                        <th  class='p-1'>Week</th>
+                        <th  class='p-1'>Year</th>
+                    <tr>
+                    <tr>
+                        <td id='dayprice' class='p-1'></td>
+                        <td id='hourprice' class='p-1'></td>
+                        <td id='monthprice' class='p-1'></td>
+                        <td id='month_3price' class='p-1'></td>
+                        <td id='month_6price' class='p-1'></td>
+                        <td id='weekprice' class='p-1'></td>
+                        <td id='yearprice' class='p-1'></td>
+                    <tr>
+                </table>
+            </div>
+            <div class='col-md-3'></div>
+        </div>
+
+        <div class='row pb-3'>
+            <div class='col-md-3'>
+                <h3>Open</h3>
+            </div>
+            <div class='col-md-6'>
+                <table>
+                    <tr>
+                        <th  class='p-1'>Day</th>
+                        <th  class='p-1'>Hour</th>
+                        <th  class='p-1'>Month</th>
+                        <th  class='p-1'>Month_3</th>
+                        <th  class='p-1'>Month_6</th>
+                        <th  class='p-1'>Week</th>
+                        <th  class='p-1'>Year</th>
+                    <tr>
+                    <tr>
+                        <td id='dayopen' class='p-1'></td>
+                        <td id='houropen' class='p-1'></td>
+                        <td id='monthopen' class='p-1'></td>
+                        <td id='month_3open' class='p-1'></td>
+                        <td id='month_6open' class='p-1'></td>
+                        <td id='weekopen' class='p-1'></td>
+                        <td id='yearopen' class='p-1'></td>
+                    <tr>
+                </table>
+            </div>
+            <div class='col-md-3'></div>
+        </div>
 
         <!-- javascript to fetch bitcoin information-->
         <script>
@@ -48,56 +177,43 @@
                 };
 
                 try {
-                    /*
-                    
-{ask: 51777.7, bid: 51771.29, last: 51774.06, high: 52424.96, low: 51686.99, …}
-ask
-: 
-51777.7
-averages
-: 
-{day: 52020.91, week: 50119.36, month: 44180.68}
-bid
-: 
-51771.29
-changes
-: 
-{price: {…}, percent: {…}}
-display_symbol
-: 
-"BTC-USD"
-display_timestamp
-: 
-"2024-02-17 09:54:25"
-high
-: 
-52424.96
-last
-: 
-51774.06
-low
-: 
-51686.99
-open
-: 
-{hour: 51868.53, day: 52195.45, week: 47207.25, month: 42708.76, month_3: 36375.92, …}
-timestamp
-: 
-1708163665
-volume
-: 
-19363.43402092
-volume_percent
-: 
-88.53
-[[Prototype]]
-: 
-Object 
-                    */
                     const response = await fetch(url, options);
                     const result = await response.json()
                     console.log(result);
-                    document.getElementById('btc-data').innerHTML = result;
+                    document.getElementById('ask-value').innerHTML = result.ask;
+                    document.getElementById('bid-value').innerHTML = result.bid;
+                    document.getElementById('high-value').innerHTML = result.high;
+                    document.getElementById('low-value').innerHTML = result.low;
+                    document.getElementById('last-value').innerHTML = result.last;
+                    
+                    document.getElementById('day').innerHTML = result.averages.day;
+                    document.getElementById('week').innerHTML = result.averages.week;
+                    document.getElementById('month').innerHTML = result.averages.month;
+
+                    document.getElementById('dayp').innerHTML = result.changes.percent.day;
+                    document.getElementById('hourp').innerHTML = result.changes.percent.hour;
+                    document.getElementById('monthp').innerHTML = result.changes.percent.month;
+                    document.getElementById('month_3p').innerHTML = result.changes.percent.month_3;
+                    document.getElementById('month_6p').innerHTML = result.changes.percent.month_6;
+                    document.getElementById('weekp').innerHTML = result.changes.percent.week;
+                    document.getElementById('yearp').innerHTML = result.changes.percent.year;
+
+                    document.getElementById('dayprice').innerHTML = result.changes.price.day;
+                    document.getElementById('hourprice').innerHTML = result.changes.price.hour;
+                    document.getElementById('monthprice').innerHTML = result.changes.price.month;
+                    document.getElementById('month_3price').innerHTML = result.changes.price.month_3;
+                    document.getElementById('month_6price').innerHTML = result.changes.price.month_6;
+                    document.getElementById('weekprice').innerHTML = result.changes.price.week;
+                    document.getElementById('yearprice').innerHTML = result.changes.price.year;
+
+                    document.getElementById('dayopen').innerHTML = result.open.day;
+                    document.getElementById('houropen').innerHTML = result.open.hour;
+                    document.getElementById('monthopen').innerHTML = result.open.month;
+                    document.getElementById('month_3open').innerHTML = result.open.month_3;
+                    document.getElementById('month_6open').innerHTML = result.open.month_6;
+                    document.getElementById('weekopen').innerHTML = result.open.week;
+                    document.getElementById('yearopen').innerHTML = result.open.year;
+
                 } catch (error) {
                     console.error(error);
                 }
